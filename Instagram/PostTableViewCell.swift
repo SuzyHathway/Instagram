@@ -63,13 +63,17 @@ class PostTableViewCell: UITableViewCell {
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
         }
         
-        if commentTextView != nil {
+        //****修正箇所＊＊＊＊＊
+        //コメントがあればテキストに反映させる
+        if postData!.comments.count != 0 {
             commentTextView.text = ""
+            
         let num = postData!.comments.count - 1
         for i in 0...num {
             commentTextView.text = commentTextView.text + "\n\(postData!.comments [i])"
         }
         }
+        
         super.layoutSubviews()
     }
 }
